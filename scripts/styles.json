@@ -1,0 +1,122 @@
+{
+  "studio-paper": {
+    "name": "浅灰黑红立体卡片",
+    "family": "paper",
+    "bg": "#e8eef2",
+    "fg": "#202b33",
+    "accent": "#b52715",
+    "muted": "#56646d",
+    "card": "#ffffff",
+    "line": "#bcc8cf",
+    "on_accent": "#ffffff",
+    "description": "当前默认 白色倾斜纸卡 红色强调"
+  },
+  "paper": {
+    "name": "早期简洁卡片",
+    "family": "classic",
+    "bg": "#eef1f3",
+    "fg": "#182129",
+    "accent": "#b52f17",
+    "muted": "#4a5862",
+    "card": "#ffffff",
+    "line": "#ced6dd",
+    "on_accent": "#ffffff",
+    "description": "第一版演示的简洁圆角列表卡片"
+  },
+  "navy": {
+    "name": "深蓝金色卡片",
+    "family": "classic",
+    "bg": "#08192b",
+    "fg": "#f5f2e9",
+    "accent": "#ffd067",
+    "muted": "#bbccdc",
+    "card": "#143150",
+    "line": "#365673",
+    "on_accent": "#08192b",
+    "description": "早期截图参考 深蓝底 金色重点"
+  },
+  "editorial-ink": {
+    "name": "暖纸杂志卡片",
+    "family": "editorial",
+    "bg": "#f1efea",
+    "fg": "#0a0a0b",
+    "accent": "#2a1e13",
+    "muted": "#625f58",
+    "card": "#e8e5de",
+    "line": "#bbb7ad",
+    "on_accent": "#f1efea",
+    "description": "参考归藏杂志体系 暖纸底 细线 分栏与留白"
+  },
+  "swiss-blue": {
+    "name": "瑞士网格 克莱因蓝",
+    "family": "swiss",
+    "bg": "#fafaf8",
+    "fg": "#0a0a0a",
+    "accent": "#002fa7",
+    "muted": "#525252",
+    "card": "#f0f0ee",
+    "line": "#d4d4d2",
+    "on_accent": "#ffffff",
+    "description": "参考归藏瑞士体系 直角 纯色 单一强调色"
+  },
+  "swiss-yellow": {
+    "name": "瑞士网格 柠檬黄",
+    "family": "swiss",
+    "bg": "#fafaf8",
+    "fg": "#0a0a0a",
+    "accent": "#ffd500",
+    "muted": "#525252",
+    "card": "#f0f0ee",
+    "line": "#d4d4d2",
+    "on_accent": "#0a0a0a",
+    "description": "参考归藏瑞士体系 直角 纯色 单一强调色"
+  },
+  "swiss-green": {
+    "name": "瑞士网格 柠檬绿",
+    "family": "swiss",
+    "bg": "#fafaf8",
+    "fg": "#0a0a0a",
+    "accent": "#c5e803",
+    "muted": "#525252",
+    "card": "#f0f0ee",
+    "line": "#d4d4d2",
+    "on_accent": "#0a0a0a",
+    "description": "参考归藏瑞士体系 直角 纯色 单一强调色"
+  },
+  "swiss-orange": {
+    "name": "瑞士网格 安全橙",
+    "family": "swiss",
+    "bg": "#fafaf8",
+    "fg": "#0a0a0a",
+    "accent": "#ff6b00",
+    "muted": "#525252",
+    "card": "#f0f0ee",
+    "line": "#d4d4d2",
+    "on_accent": "#0a0a0a",
+    "description": "参考归藏瑞士体系 直角 纯色 单一强调色"
+  },
+  "brief-light": {
+    "name": "产品分析 浅色",
+    "family": "brief",
+    "bg": "#eef0f8",
+    "fg": "#171e29",
+    "accent": "#2d58df",
+    "muted": "#566174",
+    "card": "#ffffff",
+    "line": "#c8cfdf",
+    "on_accent": "#ffffff",
+    "description": "参考笔记 大标题 直角白卡 流程链路与来源脚注"
+  },
+  "brief-dark": {
+    "name": "产品分析 深色",
+    "family": "brief",
+    "bg": "#171e2a",
+    "fg": "#f8f9fc",
+    "accent": "#a4bfff",
+    "muted": "#c3cede",
+    "card": "#232e40",
+    "line": "#647187",
+    "on_accent": "#171e2a",
+    "description": "深色产品分析 淡蓝强调 图片对照与分栏"
+  }
+}

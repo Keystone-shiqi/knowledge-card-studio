@@ -1,0 +1,6 @@
+# Install through scripts/portable.py; it selects CPU torch on Windows.
+openai-whisper==20250625
+opencc-python-reimplemented==0.1.7
+pypinyin==0.55.0
+numpy==2.4.6; platform_system != "Darwin" or platform_machine != "x86_64"
+numpy==1.26.4; platform_system == "Darwin" and platform_machine == "x86_64"

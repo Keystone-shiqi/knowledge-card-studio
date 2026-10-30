@@ -1,0 +1,6 @@
+*.cmd text eol=crlf
+*.command text eol=lf
+*.otf -text
+*.jpg -text
+*.png -text
+*.zip -text

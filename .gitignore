@@ -1,0 +1,18 @@
+# Machine runtimes and all private inputs must stay local.
+.runtime/
+node_modules/
+jobs/
+work/
+input/
+private/
+avatars/
+profiles/*
+!profiles/.gitkeep
+.env
+.env.*
+*.pem
+*.key
+__pycache__/
+*.pyc
+.DS_Store
+*.log

@@ -1,0 +1,52 @@
+{
+  "id": "notes-example",
+  "title": "先讲用户问题再讲解决方案",
+  "theme": "brief-light",
+  "series": "知识卡片示例",
+  "header": {
+    "brand": "我的知识笔记"
+  },
+  "pages": [
+    {
+      "layout": "cover",
+      "theme": "brief-dark",
+      "headline": "先讲用户问题\n再讲解决方案",
+      "lead": "一页只讲一个重点\n让读者先看见自己的处境",
+      "hero": "问题 → 方案",
+      "cards": [
+        {
+          "title": "先理解问题"
+        },
+        {
+          "title": "再解释方法"
+        }
+      ],
+      "sources": [
+        "通用排版示例 非产品测评或统计数据"
+      ]
+    },
+    {
+      "layout": "flow",
+      "headline": "把一段话\n变成一组知识卡片",
+      "rows": [
+        {
+          "label": "图文制作流程",
+          "steps": [
+            "输入文字",
+            "编排卡片",
+            "导出图片"
+          ],
+          "note": "直接输出PNG/JPG，无需配音或视频渲染。"
+        }
+      ],
+      "callout": "保留原意\n每页只讲一个重点",
+      "sources": [
+        "工作流功能示例"
+      ]
+    }
+  ],
+  "caption": "用卡片把观点讲清楚。",
+  "tags": [
+    "知识卡片"
+  ]
+}
