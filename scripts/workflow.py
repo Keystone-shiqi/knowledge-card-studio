@@ -11,7 +11,7 @@ import shutil
 import subprocess
 import sys
 import urllib.request
-from presentation import resolve_presentation, STYLES
+from presentation import resolve_presentation, STYLES, VIDEO_STYLES
 
 os.environ.setdefault('PYTHONUTF8','1')
 ROOT = Path(__file__).resolve().parents[1]
@@ -421,7 +421,7 @@ def main():
     nt=sub.add_parser('notes',help='直接导出图文PNG/JPG，不生成配音和视频')
     nt.add_argument('--job',required=True);nt.add_argument('--profile');nt.add_argument('--style',choices=list(STYLES));nt.add_argument('--output')
     rs=sub.add_parser('restyle',help='复用现有音频更换风格与页眉')
-    rs.add_argument('--source',required=True);rs.add_argument('--style',choices=list(STYLES))
+    rs.add_argument('--source',required=True);rs.add_argument('--style',choices=list(VIDEO_STYLES))
     rs.add_argument('--header-json',help='仅包含header字段的JSON文件');rs.add_argument('--no-render',action='store_true')
     d=sub.add_parser('doctor');d.add_argument('--profile');d.add_argument('--recorded',action='store_true',help='上传录音路线，不检查TTS服务')
     av=sub.add_parser('avatars');av.add_argument('--select',default='auto')
@@ -430,7 +430,7 @@ def main():
     ref.add_argument('--output',default='input/my-voice-reference.wav')
     r=sub.add_parser('run');r.add_argument('--job',required=True);r.add_argument('--profile',required=True)
     r.add_argument('--demo',action='store_true');r.add_argument('--no-render',action='store_true')
-    r.add_argument('--style',choices=list(STYLES),help='卡片与封面风格，覆盖job和profile')
+    r.add_argument('--style',choices=list(VIDEO_STYLES),help='卡片与封面风格，覆盖job和profile')
     r.add_argument('--audio',help='整段已录制配音，跳过TTS；多幕需真实音频时间')
     r.add_argument('--avatar-mode',choices=['static','mouth','video','poses'],help='人物呈现方式；不自动调用云端模型')
     r.add_argument('--avatar-video',help='本条文案对应的口播视频文件')

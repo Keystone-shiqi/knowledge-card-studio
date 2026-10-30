@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 STYLES = json.loads((Path(__file__).parent / 'styles.json').read_text(encoding='utf-8'))
+VIDEO_STYLES = {key:value for key,value in STYLES.items() if 'video' in value.get('modes',['notes','video'])}
 DEFAULT_HEADER = dict(visible=True, section_visible=True, tagline='知识 · 表达',
                       section_prefix='', show_number=False, number_start=1, number_pad=2)
 
@@ -27,7 +28,7 @@ def validate_header(value, partial=False):
 
 def resolve_presentation(job, profile, style=None):
     theme = style or job.get('theme') or profile.get('theme') or 'studio-paper'
-    if theme not in STYLES: raise ValueError('未知风格：'+str(theme)+'；可选 '+', '.join(STYLES))
+    if theme not in VIDEO_STYLES: raise ValueError('未知视频风格或该风格仅用于图文：'+str(theme)+'；视频可选 '+', '.join(VIDEO_STYLES))
     header = dict(DEFAULT_HEADER, brand=profile.get('brand', '教育观察'))
     for source in (profile, job):
         header.update(validate_header(source.get('header', {})))

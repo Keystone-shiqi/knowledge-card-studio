@@ -1,10 +1,10 @@
-# 给安装Agent的说明 · v1.3.0
+# 给安装Agent的说明 · v1.3.1
 
 仓库：https://github.com/Keystone-shiqi/knowledge-card-studio 。先确认用户指定的安装目录和输出形式；不要覆盖已有私人配置。
 
 ## 获取程序
 
-Git可用时clone该公开仓库，推荐固定v1.3.0标签；否则从GitHub Release或Code → Download ZIP下载、解压。程序根目录含SKILL.md、package.json和scripts。解压后的文件夹可改名；配置后移动目录应重新检查本机路径。不要复制其他电脑的.runtime或node_modules。
+Git可用时clone该公开仓库，推荐固定v1.3.1标签；否则从GitHub Release或Code → Download ZIP下载、解压。程序根目录含SKILL.md、package.json和scripts。解压后的文件夹可改名；配置后移动目录应重新检查本机路径。不要复制其他电脑的.runtime或node_modules。
 
 ## 基础环境
 
@@ -12,7 +12,7 @@ Git可用时clone该公开仓库，推荐固定v1.3.0标签；否则从GitHub Re
 
 ## 首次初始化
 
-读取根目录SKILL.md。运行`<Python> -X utf8 scripts/portable.py init`，打开本机默认浏览器中的选择页；等待用户选择“图文/视频”及十种风格之一并保存，不替用户预选。打不开浏览器时给出脚本打印的本机URL。选择写入profiles/appearance.json。无需先安装声音模型。
+读取根目录SKILL.md。运行`<Python> -X utf8 scripts/portable.py init`，打开本机默认浏览器中的选择页；等待用户选择“图文/视频”及风格（图文六种精选，视频十种）并保存，不替用户预选。打不开浏览器时给出脚本打印的本机URL。选择写入profiles/appearance.json。无需先安装声音模型。
 
 ## 图文模式（轻量）
 

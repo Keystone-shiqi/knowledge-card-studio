@@ -11,12 +11,13 @@ def save_choice(root,data):
         raise ValueError('请选择一种卡片风格')
     output=data.get('output_mode','video')
     if output not in ('video','notes'):raise ValueError('请选择视频或图文')
+    if output not in STYLES[data['theme']].get('modes',['notes','video']):raise ValueError('该风格仅支持图文，请重新选择视频风格')
     mode=data.get('audio_source','recorded')
     if mode not in ('recorded','clone'):raise ValueError('请选择上传配音或文字克隆')
     h=data.get('header',{})
     if set(h)-{'brand','tagline'}:raise ValueError('初始化仅设置品牌与栏目')
     validate_header(h)
-    value={'theme':data['theme'],'header':dict(h,section_prefix='',show_number=False),'initialized':True,'version':'1.3.0','audio_source':mode,'output_mode':output}
+    value={'theme':data['theme'],'header':dict(h,section_prefix='',show_number=False),'initialized':True,'version':'1.3.1','audio_source':mode,'output_mode':output}
     dest=root/'profiles/appearance.json';dest.parent.mkdir(parents=True,exist_ok=True)
     tmp=dest.with_suffix('.new');tmp.write_text(json.dumps(value,ensure_ascii=False,indent=2),encoding='utf-8');tmp.replace(dest)
     return value
@@ -37,7 +38,7 @@ def serve(root=ROOT,open_browser=True,timeout=600,ready_file=None):
             if name=='styles':return self.response(200,STYLES)
             if name=='':file=base/'index.html';kind='text/html'
             elif name.startswith('previews/') and name[9:] in [k+'.jpg' for k in STYLES]:file=base/name;kind='image/jpeg'
-            elif name=='comparison.jpg':file=base/name;kind='image/jpeg'
+            elif name in ('comparison.jpg','notes-comparison.jpg'):file=base/name;kind='image/jpeg'
             else:return self.response(404,{'error':'not found'})
             if not file.is_file():return self.response(404,{'error':'asset missing'})
             return self.response(200,file.read_bytes(),kind)

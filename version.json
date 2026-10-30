@@ -1,5 +1,5 @@
 {
-  "version": "1.3.0",
+  "version": "1.3.1",
   "voice": "VoiceStudio/MOSS-TTS-Nano",
   "voice_routing": "local",
   "supported_target": [
@@ -11,7 +11,7 @@
   "workbuddy_ui_trigger_tested": false,
   "includes_models": false,
   "includes_private_assets": false,
-  "card_styles": 10,
+  "card_styles": 16,
   "custom_header": true,
   "reuses_audio_for_restyle": true,
   "first_use_style_picker": true,
@@ -24,5 +24,8 @@
   "notes_output": true,
   "notes_needs_voice": false,
   "notes_needs_asr": false,
-  "notes_needs_ffmpeg": false
+  "notes_needs_ffmpeg": false,
+  "video_styles": 10,
+  "notes_featured_styles": 6,
+  "notes_available_styles": 16
 }

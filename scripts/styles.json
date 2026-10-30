@@ -118,5 +118,101 @@
     "line": "#647187",
     "on_accent": "#171e2a",
     "description": "深色产品分析 淡蓝强调 图片对照与分栏"
+  },
+  "notes-poster": {
+    "name": "大字观点海报",
+    "family": "notes-poster",
+    "bg": "#fffaf1",
+    "fg": "#191919",
+    "accent": "#c63428",
+    "muted": "#696259",
+    "card": "#ffffff",
+    "line": "#d6ccbc",
+    "on_accent": "#ffffff",
+    "description": "结论先行 大字黑红 适合观点与避坑",
+    "modes": [
+      "notes"
+    ],
+    "notes_featured": true
+  },
+  "notes-checklist": {
+    "name": "横线清单笔记",
+    "family": "notes-checklist",
+    "bg": "#f8f7ef",
+    "fg": "#242421",
+    "accent": "#b43a2d",
+    "muted": "#66665d",
+    "card": "#f8f7ef",
+    "line": "#d7dbd2",
+    "on_accent": "#ffffff",
+    "description": "横线纸 大编号 条目清单 适合方法与步骤",
+    "modes": [
+      "notes"
+    ],
+    "notes_featured": true
+  },
+  "notes-sticky": {
+    "name": "便签手账",
+    "family": "notes-sticky",
+    "bg": "#f6efde",
+    "fg": "#293e35",
+    "accent": "#a64532",
+    "muted": "#59685b",
+    "card": "#fff2b5",
+    "line": "#bcc3a4",
+    "on_accent": "#ffffff",
+    "description": "奶油底 便签胶带 适合经验总结与轻知识",
+    "modes": [
+      "notes"
+    ],
+    "notes_featured": true
+  },
+  "notes-magazine": {
+    "name": "杂志留白 归藏参考",
+    "family": "notes-magazine",
+    "bg": "#f1efea",
+    "fg": "#0a0a0b",
+    "accent": "#2a1e13",
+    "muted": "#625f58",
+    "card": "#f1efea",
+    "line": "#b9b5aa",
+    "on_accent": "#f1efea",
+    "description": "借鉴归藏电子杂志的留白 分栏与细线 标题保留黑体Bold",
+    "modes": [
+      "notes"
+    ],
+    "notes_featured": true
+  },
+  "notes-swiss": {
+    "name": "瑞士信息图 归藏参考",
+    "family": "notes-swiss",
+    "bg": "#fafaf8",
+    "fg": "#101010",
+    "accent": "#002fa7",
+    "muted": "#555555",
+    "card": "#ececea",
+    "line": "#c9c9c4",
+    "on_accent": "#ffffff",
+    "description": "借鉴归藏瑞士体系 单一蓝色 直角网格与大数字",
+    "modes": [
+      "notes"
+    ],
+    "notes_featured": true
+  },
+  "notes-dark": {
+    "name": "深色判断卡",
+    "family": "notes-dark",
+    "bg": "#17202e",
+    "fg": "#f7f8fb",
+    "accent": "#b0c7ff",
+    "muted": "#c3cddd",
+    "card": "#263247",
+    "line": "#66768c",
+    "on_accent": "#17202e",
+    "description": "深蓝底 冷蓝强调 适合产品分析和结论判断",
+    "modes": [
+      "notes"
+    ],
+    "notes_featured": true
   }
 }

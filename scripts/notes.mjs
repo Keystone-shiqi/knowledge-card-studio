@@ -1,3 +1,4 @@
+import {notesStyleCSS} from './notes_styles.mjs';
 import fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';
 import {chromium} from 'playwright';import {browserOptions} from './browser_options.mjs';
 import {styles,esc} from './presentation.mjs';import {cleanHeading,headingFamily,headingFontCSS,bodyFontCSS,prepareTypography} from './typography.mjs';
@@ -19,7 +20,7 @@ try{
  for(const [i,p] of m.pages.entries()){
   const t=styles[p.theme||m.theme];if(!t)throw Error('未知图文风格');
   const title=cleanHeading(p.headline),lines=title.split('\n'),longest=Math.max(...lines.map(x=>Array.from(x).length));const size=Math.max(58,Math.min(94,Math.floor(952/Math.max(longest,1))));
-  const accents=p.accent_lines||((p.theme||m.theme)==='brief-dark'?[1]:[]);
+  const accents=p.accent_lines||(['brief-dark','notes-dark','notes-poster'].includes(p.theme||m.theme)?[1]:[]);
   const heading=lines.map((x,n)=>`<span class="${accents.includes(n)?'accent':''}">${esc(x)}</span>`).join('\n');
   const header=m.header||{},brand=p.eyebrow||header.brand||'',series=m.series??header.tagline??'',pageNo=m.page_numbers?` / ${String(i+1).padStart(2,'0')}`:'';
   const footer=(p.sources||[]).map(s=>`<div>${esc(s)}</div>`).join('');
@@ -28,7 +29,7 @@ try{
 ${t.family==='paper'?'.card{background:#fff;border:0;border-radius:13px;box-shadow:0 12px 20px #202b3319}.hero{background:#fff;padding:45px;box-shadow:0 18px 30px #202b3322;transform:rotate(-1deg)}':''}
 ${t.family==='classic'?'.card{border-radius:16px;border:1px solid var(--line)}':''}
 ${t.family==='editorial'?'.card{background:transparent;padding:28px 0;border-top:2px solid var(--fg)}.hero>span{color:var(--fg)}':''}
-</style><body><div class="page">${header.visible===false?'':`<header class="header"><span>${esc(brand)}</span><span>${esc(series+pageNo)}</span></header>`}<main class="content"><h1>${heading}</h1><div class="body">${art(p)}</div></main><footer class="footer">${footer}</footer></div></body></html>`;
+${notesStyleCSS(t)}</style><body><div class="page">${header.visible===false?'':`<header class="header"><span>${esc(brand)}</span><span>${esc(series+pageNo)}</span></header>`}<main class="content"><h1>${heading}</h1><div class="body">${art(p)}</div></main><footer class="footer">${footer}</footer></div></body></html>`;
   const name=String(i+1).padStart(2,'0'),file=path.join(dir,name+'.html');fs.writeFileSync(file,html);
   const page=await browser.newPage({viewport:{width:m.width,height:m.height},deviceScaleFactor:1});await page.goto(pathToFileURL(file).href,{waitUntil:'domcontentloaded',timeout:60000});await page.waitForFunction(()=>document.fonts.status==='loaded'&&[...document.images].every(im=>im.complete&&im.naturalWidth>0),null,{timeout:60000});
   const issues=await page.evaluate(()=>{

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 export const styles=JSON.parse(fs.readFileSync(new URL('./styles.json',import.meta.url),'utf8'));
 export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export function styleOf(m){const theme=m.theme||'studio-paper';if(!styles[theme])throw Error('未知风格 '+theme);return styles[theme]}
+export function styleOf(m){const theme=m.theme||'studio-paper';if(!styles[theme]||!(styles[theme].modes||['notes','video']).includes('video'))throw Error('未知视频风格或该风格仅用于图文 '+theme);return styles[theme]}
 export function headerOf(m){return {visible:true,section_visible:true,brand:m.brand||'教育观察',tagline:'知识 · 表达',section_prefix:'',show_number:false,number_start:1,number_pad:2,...m.header}}
 export function sectionHeader(m,s){
  const h={...headerOf(m),...s.header};
