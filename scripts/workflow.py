@@ -160,8 +160,13 @@ def doctor(profile=None,recorded=False):
     return 0 if all(checks.values()) else 2
 
 def finish_visuals(out, manifest, no_render=False, demo=False):
+    from card_timing import prepare
+    timing=prepare(manifest)
+    save(out/'card-timing.json',timing)
+    save(out/'manifest.json',manifest)
     fps=manifest['fps'];timeline=manifest['scenes'];time=manifest['speech_duration'];total=manifest['duration']
     run(['node',ROOT/'scripts/compose.mjs',out])
+    run(['node',ROOT/'scripts/check_card_reveals.mjs',out])
     check=subprocess.run(hyperframes('check',out,'--json'),cwd=ROOT,text=True,encoding='utf-8',capture_output=True)
     (out/'hyperframes-check.json').write_text(check.stdout,encoding='utf-8')
     (out/'hyperframes-check.log').write_text(check.stderr,encoding='utf-8')
@@ -170,7 +175,10 @@ def finish_visuals(out, manifest, no_render=False, demo=False):
     if not no_render:
         target=out/('演示_非本人声音_1080x1920.mp4' if demo else '成片_1080x1920.mp4')
         raw=out/'render.mp4'
-        run(hyperframes('render',out,'--fps',fps,'--quality','delivery','--workers','2','--output',raw))
+        # Parallel capture occasionally loses a frame between worker temp dirs and the
+        # encode step (ENOENT on copyfile after all frames "complete"), wasting a full
+        # render. Default to one worker; opt in via WORKFLOW_RENDER_WORKERS=2 on faster machines.
+        run(hyperframes('render',out,'--fps',fps,'--quality','delivery','--workers',os.environ.get('WORKFLOW_RENDER_WORKERS','1'),'--output',raw))
         run(['ffmpeg','-v','error','-y','-i',raw,'-i',out/'media/narration.wav','-map','0:v:0','-map','1:a:0',
              '-c:v','copy','-af','apad=pad_dur=0.4','-t',str(total),'-c:a','aac','-ar','48000','-ac','2','-movflags','+faststart',target])
         pr=probe(target);save(out/'ffprobe.json',pr)
@@ -368,7 +376,7 @@ def build(args):
             # Crop is deterministic; circle masking is authored in the HTML layer.
             run(['ffmpeg','-v','error','-y','-ss','0.2','-i',out/'media/avatar.mp4','-frames:v','1',out/'media/portrait.jpg'])
         total=round(time+0.4,6)
-        manifest={'title':job['title'],'brand':header['brand'],'theme':theme,'header':header,'workflow_version':'1.3.0',
+        manifest={'title':job['title'],'brand':header['brand'],'theme':theme,'header':header,'workflow_version':'1.3.2',
                   'scenes':timeline,'captions':captions,'duration':total,'speech_duration':time,'fps':fps,
                   'avatar':bool(avfile or avatar_cues),'avatar_kind':avatar_kind,'avatar_cues':avatar_cues,'avatar_mode':avmode,'demo':args.demo,'covers':job.get('covers',{}),
                   'audio_mode':mode,'audio_reused':mode in ('recorded','video-native'),

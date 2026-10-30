@@ -1,5 +1,5 @@
 {
-  "version": "1.3.1",
+  "version": "1.3.2",
   "voice": "VoiceStudio/MOSS-TTS-Nano",
   "voice_routing": "local",
   "supported_target": [
@@ -27,5 +27,8 @@
   "notes_needs_ffmpeg": false,
   "video_styles": 10,
   "notes_featured_styles": 6,
-  "notes_available_styles": 16
+  "notes_available_styles": 16,
+  "progressive_cards": true,
+  "speech_anchor_timing": true,
+  "card_motion_gate": true
 }

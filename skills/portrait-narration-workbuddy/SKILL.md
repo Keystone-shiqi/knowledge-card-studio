@@ -14,3 +14,5 @@ description: 调用本地知识卡片工作流，将文字生成多风格小红�
 视频：使用.runtime/runtime.json的Python；保留终审文案。上传原声走recorded，无需VoiceStudio且不得重新克隆或自动变速；先读references/上传配音.md。文字克隆走clone，只在此路线检测并可下载官方VoiceStudio v0.5.7，系统安装和MOSS模型/本人档案需首次完成，不接受许可或猜声音ID。本机profiles/personal.json的声音、头像和路径优先保留，不把旧配置复制到其他电脑。默认静态圆形头像，还可选本地简化嘴型、口播视频、姿势图切换；不默认用付费人物模型或IndexTTS。
 
 仅换视觉使用restyle复用声音字幕。交付真实图片或MP4与封面、检查结果；失败保留日志，不自动改云端或消耗人物模型积分。WorkBuddy对话模型按账号设置运行，本地配音不代表整个Agent离线。不要自动发布用户内容。
+
+视频生成前读程序references/视频卡片时序.md，给每张卡片绑定真实口播锚点card_cues，验收card-reveal-check.json；不能整页同时显示冒充动态卡片。静态图文不加动画。

@@ -1,10 +1,10 @@
-# 给安装Agent的说明 · v1.3.1
+# 给安装Agent的说明 · v1.3.2
 
 仓库：https://github.com/Keystone-shiqi/knowledge-card-studio 。先确认用户指定的安装目录和输出形式；不要覆盖已有私人配置。
 
 ## 获取程序
 
-Git可用时clone该公开仓库，推荐固定v1.3.1标签；否则从GitHub Release或Code → Download ZIP下载、解压。程序根目录含SKILL.md、package.json和scripts。解压后的文件夹可改名；配置后移动目录应重新检查本机路径。不要复制其他电脑的.runtime或node_modules。
+Git可用时clone该公开仓库，推荐固定v1.3.2标签；否则从GitHub Release或Code → Download ZIP下载、解压。程序根目录含SKILL.md、package.json和scripts。解压后的文件夹可改名；配置后移动目录应重新检查本机路径。不要复制其他电脑的.runtime或node_modules。
 
 ## 基础环境
 

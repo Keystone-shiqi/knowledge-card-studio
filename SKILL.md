@@ -57,3 +57,7 @@ description: 将文字生成多风格小红书图文笔记，或用上传原声�
 首次初始化可选择上传配音(recorded，推荐)或文字克隆(clone)。VoiceStudio仅克隆路线需要；有实际录音时优先保留原声，不要求安装VoiceStudio或再克隆。完整字段与操作见[references/上传配音.md](references/上传配音.md)。--audio或job.audio_source显式覆盖TTS；多幕按真实audio_start/audio_end完整覆盖，不能猜时间、截漏或对每幕重复整段音频。只有录音时先用transcribe_recording.py得到文字与实际时间，再编排分镜。
 
 上传原声不自动变速，不把简化嘴型说成精准口型或手势。新用户录音模式的install/configure跳过VoiceStudio；既有MOSS配置保留，不能默认覆盖。
+
+## 1.3.2 视频按口播逐项出现
+
+视频任务先读[references/视频卡片时序.md](references/视频卡片时序.md)。每张卡片用card_cues绑定真实口播短语，逐词时间解析为card_at；标题先出，卡片逐项累积，不能整页同时展示或仅均匀快闪。复用已有音频；必须检查card-reveal-check.json和最终MP4的逐项帧。静态图文仍输出完整页，不受此规则影响。

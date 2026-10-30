@@ -1,3 +1,4 @@
+import {cardTimes} from './card_timing.mjs';
 import {styleOf,headerOf,sectionHeader,topbar} from './presentation.mjs';
 import {cleanHeading,bodyFontCSS,sceneBodyFontCSS,headingFontCSS,sceneHeadingFontCSS,headingFamily,prepareTypography} from './typography.mjs';
 import {avatarMarkup} from './avatar_markup.mjs';
@@ -13,15 +14,16 @@ const colors=dark?{bg:'#08192B',fg:'#F5F2E9',red:'#FFD067',card:'#143150',muted:
 let scenes='',anim='';
 for(const s of m.scenes){
  const id=`s${s.index}`,cards=s.cards?.length?s.cards:[s.text];
+ const ats=cardTimes(s,cards);
  const headlineSize=s.headline.length>22?65:82;
  scenes+=`<section id="${id}" class="clip scene" data-start="${s.start}" data-duration="${s.duration+(s.index===m.scenes.length-1?0.4:0)}" data-track-index="1">
  <div class="scene-inner" id="${id}-inner">${sectionHeader(m,s)}
  <h1 style="font-size:${headlineSize}px">${esc(cleanHeading(s.headline))}</h1>
  ${s.number?`<div class="stat"><strong>${esc(s.number)}</strong><span>${esc(s.unit||'')}</span></div>`:''}
- <div class="cards ${s.number?'with-stat':''}">${cards.map((c,i)=>`<div class="card" id="${id}-card${i}"><span class="card-index">0${i+1}</span><p>${esc(c)}</p></div>`).join('')}</div>
+ <div class="cards ${s.number?'with-stat':''}">${cards.map((c,i)=>`<div class="card" id="${id}-card${i}" style="opacity:0;visibility:hidden"><span class="card-index">0${i+1}</span><p>${esc(c)}</p></div>`).join('')}</div>
  <div class="scene-foot">${esc(s.takeaway||'把复杂的问题，讲清楚。')}</div></div></section>`;
  anim+=`tl.fromTo('#${id}-inner',{opacity:0,y:35},{opacity:1,y:0,duration:.42,ease:'power3.out'},${s.start});\n`;
- cards.forEach((_,i)=>{anim+=`tl.fromTo('#${id}-card${i}',{opacity:0,y:45,rotation:${i%2?1.3:-1.3}},{opacity:1,y:0,rotation:0,duration:.5,ease:'power3.out'},${s.start+0.3+i*0.25});\n`;});
+ cards.forEach((_,i)=>{anim+=`tl.set('#${id}-card${i}',{autoAlpha:0,y:35},0);tl.to('#${id}-card${i}',{autoAlpha:1,y:0,duration:.4,ease:'power3.out'},${s.start+ats[i]});\n`;});
 }
 const caps=m.captions.map((c,i)=>`<div id="cap${i}" class="clip caption" data-start="${c.start}" data-duration="${(c.end-c.start).toFixed(3)}" data-track-index="4" data-track-kind="captions" data-layout-allow-caption-zone="true"><span>${esc(c.text)}</span></div>`).join('');
 const avatar=avatarMarkup(m);

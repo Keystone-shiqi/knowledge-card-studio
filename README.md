@@ -1,6 +1,6 @@
 # 知识卡片工作室 · Knowledge Card Studio
 
-**v1.3.1** · 给Agent一段文字，生成小红书图文；也可制作竖版口播视频。
+**v1.3.2** · 给Agent一段文字，生成小红书图文；也可制作竖版口播视频。
 
 支持WorkBuddy、Codex及其他具有本地文件和命令执行能力的Agent。通用仓库不含任何个人头像、录音、声音档案或账号配置。
 
@@ -21,6 +21,10 @@
 | 文案＋本人声音档案 | 克隆配音竖版视频、封面 | 再加VoiceStudio/MOSS |
 
 纯图文不要求VoiceStudio、Whisper、FFmpeg或头像；不经过视频渲染。图文编排由调用Skill的Agent完成，脚本负责确定性排版与导出，不包含独立的LLM写作服务。
+
+## 1.3.2 修复
+
+视频卡片按口播锚点逐项出现；两类渲染模板统一使用每卡时间。新增正向/逆向时序检查，失败阻止视频渲染。默认图片笔记仍一次导出完整页。旧任务可用restyle复用原声音修画面；详见[视频卡片时序](references/视频卡片时序.md)。
 
 ## 1.3.1 新增
 
@@ -60,6 +64,6 @@ Mac M系列：已测试图文六页、十种风格、两种比例、图片版式
 
 ## 发布与隐私
 
-[安装包和源码下载](https://github.com/Keystone-shiqi/knowledge-card-studio/releases/tag/v1.3.1)。用户自己的profiles/input/avatars/jobs、运行时、模型权重及账号凭据不进入公开发布。
+[安装包和源码下载](https://github.com/Keystone-shiqi/knowledge-card-studio/releases/tag/v1.3.2)。用户自己的profiles/input/avatars/jobs、运行时、模型权重及账号凭据不进入公开发布。
 
 本项目自有代码与文档使用[MIT许可](LICENSE)；字体、GSAP与其他依赖保留各自许可，见[第三方资源说明.md](第三方资源说明.md)。
